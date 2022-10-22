@@ -1,3 +1,4 @@
+import Form from "./pages/Form/Form";
 import './App.css';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
       <header className="header">
         Nested Checkbox
       </header>
+      <Form />
     </div>
   );
 }
