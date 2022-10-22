@@ -1,13 +1,19 @@
 import './ListItem.css';
 
 const ListItem = (props) => {
-  return (
-    <div className="listItem">
+    const depth = props.boxData.depth;
+    let textCls = "";
+    if(depth === 0 || depth === 1)
+        textCls = " level" + depth;
 
-        <input type="checkbox"></input>
-        {props.boxData.name}
-    </div>
-  );
+    return (
+        <div className="listItem">
+            <input className="checkbox-ele" type="checkbox"></input>
+            <span className={"checkbox-title" + textCls}>
+                {props.boxData.name}
+            </span>
+        </div>
+    );
 }
 
 export default ListItem;

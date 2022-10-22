@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import CheckboxItem from "../../components/CheckboxItem/CheckboxItem";
 
+import './Form.css';
+
 const Form = () => {
     const [checkboxData, setCheckboxData] = useState([]);
 
@@ -67,11 +69,14 @@ const Form = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             {
                 checkboxData.map((boxData) => {
                     return (
-                        <CheckboxItem boxData={boxData}></CheckboxItem>
+                        <CheckboxItem 
+                            boxData={boxData}
+                            key={boxData.id}
+                        ></CheckboxItem>
                     )
                 })
             }
