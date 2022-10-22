@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Sports",
+        "id": "0",
+        "parentId": null
+    },
+    {
+        "name": "Recipes",
+        "id": "1",
+        "parentId": null
+    },
+    {
+        "name": "Locations",
+        "id": "2",
+        "parentId": null
+    },
+    {
+        "name": "IPL",
+        "id": "0-1",
+        "parentId": "0"
+    },
+    {
+        "name": "EPL",
+        "id": "0-2",
+        "parentId": "0"
+    },
+    {
+        "name": "NBA",
+        "id": "0-3",
+        "parentId": "0"
+    },
+    {
+        "name": "Soccer",
+        "id": "0-4",
+        "parentId": "0"
+    },
+    {
+        "name": "Rugby",
+        "id": "0-5",
+        "parentId": "0"
+    },
+    {
+        "name": "Mumbai Indians",
+        "id": "0-1-0",
+        "parentId": "0-1"
+    },
+    {
+        "name": "Rajasthan Royals",
+        "id": "0-1-1",
+        "parentId": "0-1"
+    },
+    {
+        "name": "Gujarat Titans",
+        "id": "0-1-2",
+        "parentId": "0-1"
+    },
+    {
+        "name": "Arsenal",
+        "id": "0-2-0",
+        "parentId": "0-2"
+    },
+    {
+        "name": "Chelsea",
+        "id": "0-2-1",
+        "parentId": "0-2"
+    },
+    {
+        "name": "Manchester United",
+        "id": "0-2-2",
+        "parentId": "0-2"
+    }
+]
