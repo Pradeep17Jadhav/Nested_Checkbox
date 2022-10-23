@@ -41,32 +41,32 @@
     },
     {
         "name": "Mumbai Indians",
+        "id": "0-0-0",
+        "parentId": "0-0"
+    },
+    {
+        "name": "Rajasthan Royals",
+        "id": "0-0-1",
+        "parentId": "0-0"
+    },
+    {
+        "name": "Gujarat Titans",
+        "id": "0-0-2",
+        "parentId": "0-0"
+    },
+    {
+        "name": "Arsenal",
         "id": "0-1-0",
         "parentId": "0-1"
     },
     {
-        "name": "Rajasthan Royals",
+        "name": "Chelsea",
         "id": "0-1-1",
         "parentId": "0-1"
     },
     {
-        "name": "Gujarat Titans",
+        "name": "Manchester United",
         "id": "0-1-2",
         "parentId": "0-1"
-    },
-    {
-        "name": "Arsenal",
-        "id": "0-2-0",
-        "parentId": "0-2"
-    },
-    {
-        "name": "Chelsea",
-        "id": "0-2-1",
-        "parentId": "0-2"
-    },
-    {
-        "name": "Manchester United",
-        "id": "0-2-2",
-        "parentId": "0-2"
     }
 ]

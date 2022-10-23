@@ -7,7 +7,7 @@ const Form = () => {
     const [checkboxData, setCheckboxData] = useState([]);
 
     useEffect(() => {
-        let path = "https://api.npoint.io/e54573e2ba3b90d4fda2";
+        let path = "https://api.npoint.io/81bd4e0f0d74180ad58a";
         fetch(path)
             .then((res) => res.json())
             .then((data) => processCheckboxData(data))

@@ -1,0 +1,48 @@
+/* Parent checkbox component */
+.checkmark {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 0px;
+    border: 1px solid #CAD1D5;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Hiding the browser's default checkbox */
+.checkbox input {
+    display: none;
+}
+
+/* Custom checkbox element using psuedo element */
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 3px;
+    top: 3px;
+    width: 10px;
+    height: 10px;
+    background-color: #41C3A9;
+    border-radius: 50%;
+}
+
+/* Label of the parent checkbox component */
+.checkbox-label  {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 28px;
+    margin: 10px 10px;
+    color: #7A7A7A;
+}
+
+/* Show the checkmark only when checked */
+.checkbox input:checked ~ .checkmark::after {
+    display: block;
+}
+
+/* Hover effect on custom checkbox */
+.checkbox:hover .checkmark {
+    background-color: #d8ffcb;
+}

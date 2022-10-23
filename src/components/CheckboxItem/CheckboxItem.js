@@ -29,7 +29,11 @@ const CheckboxItem = (props) => {
 
     return (
         <div className="checkBoxItem">
-            <ListItem boxData = {boxData}/>
+            <ListItem 
+                name={boxData.name}
+                depth={boxData.depth}
+                bHasChilds={childElements != null}
+            />
             { childElements }
         </div>
     );

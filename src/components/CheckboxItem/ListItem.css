@@ -1,16 +1,19 @@
-.checkbox-ele {
-
+.listItem {
+    display: flex;
+    align-items: center;
 }
 
-.checkbox-title {
-    padding-left: 8px;
+.checkbox-ele {
+    margin: 0px 5px;
 }
 
 .level0 {
     font-weight: 600;
+    color: #0D2238;
 }
 
 .level1 {
     font-weight: 500;
     text-transform: uppercase;
+    color: #0D2238;
 }
