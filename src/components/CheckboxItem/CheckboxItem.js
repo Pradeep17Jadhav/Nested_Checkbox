@@ -36,6 +36,9 @@ const CheckboxItem = (props) => {
 
     return (
         <div className="checkBoxItem">
+            <span className="expand-line" />
+            <span className="checkbox-line" />
+
             <ListItem 
                 name={boxData.name}
                 depth={boxData.depth}

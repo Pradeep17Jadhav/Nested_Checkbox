@@ -22,6 +22,7 @@
 .expandButton {
     position: relative;
     border-radius: 50%;
+    background-color: #FFF;
     border: 1px solid #CAD1D5;
     width: 16px;
     height: 16px;
