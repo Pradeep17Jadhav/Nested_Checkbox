@@ -18,10 +18,11 @@ const CheckboxItem = (props) => {
                     if(!child || child === -1)
                         return null;
                     return (
-                        <CheckboxItem 
-                            className=""
+                        <CheckboxItem
                             boxData={child}
                             key={child.id}
+                                checkedState={props.checkedState}
+                                updateCheckedState={props.updateCheckedState}
                         />
                     );
                 })
@@ -40,9 +41,13 @@ const CheckboxItem = (props) => {
             <ListItem 
                 name={boxData.name}
                 depth={boxData.depth}
+                id={boxData.id}
+                checked={boxData.checked}
                 bHasChilds={childElements != null}
                 isExpanded={isExpanded}
+                checkedState={props.checkedState}
                 showHideHandler={showHideHandler}
+                updateCheckedState={props.updateCheckedState}
             />
             { isExpanded && childElements }
         </div>

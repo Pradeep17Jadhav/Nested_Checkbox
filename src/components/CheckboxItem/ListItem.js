@@ -22,6 +22,10 @@ const ListItem = (props) => {
                 <Checkbox 
                     textCls={textCls}
                     name={props.name}
+                    id={props.id}
+                    checked={props.checked}
+                    bLeafNode={!props.bHasChilds}
+                    updateCheckedState={props.updateCheckedState}
                 />
             </div>
         </>
