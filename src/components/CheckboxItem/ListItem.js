@@ -12,16 +12,21 @@ const ListItem = (props) => {
     visibilityCls += props.bHasChilds ? "" : " hidden";
 
     return (
-        <div className="listItem">
-            <div 
-                className={"expandButton" + visibilityCls} 
-                onClick={props.showHideHandler}
-            />
-            <Checkbox 
-                textCls={textCls}
-                name={props.name}
-            />
-        </div>
+        <>
+            <span className="expand-line" />
+            <div className="listItem">
+                <span className="checkbox-line" />
+                <div 
+                    className={"expandButton" + visibilityCls} 
+                    onClick={props.showHideHandler}
+                />
+                <Checkbox 
+                    textCls={textCls}
+                    name={props.name}
+                />
+            </div>
+        </>
+        
     );
 }
 

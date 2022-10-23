@@ -12,6 +12,7 @@ const CheckboxItem = (props) => {
     if(bHasChilds) {
         childElements = (
             <div className="checkBoxItem-childs">
+                <span className="vertical-line" />
             {
                 boxData.childs.map((child) => {
                     if(!child || child === -1)
@@ -36,9 +37,6 @@ const CheckboxItem = (props) => {
 
     return (
         <div className="checkBoxItem">
-            <span className="expand-line" />
-            <span className="checkbox-line" />
-
             <ListItem 
                 name={boxData.name}
                 depth={boxData.depth}

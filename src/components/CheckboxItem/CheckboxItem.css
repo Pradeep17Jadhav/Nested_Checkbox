@@ -7,18 +7,11 @@
     margin: 0px 28px;
 }
 
-/* .expand-line, .checkbox-line {
+.vertical-line::after {
     position: absolute;
     content: "";
     height: 100%;
     width: 0px;
-    border: 1px dashed #CAD1D4;
-    margin-left: 9px;
-    z-index: 0;
-    opacity: 0.70;
-}
-
-.checkbox-line {
-    margin-left: 37px;
-}
+    border-left: 1px dashed #CAD1D4;
+    margin-left: -19px;
 }

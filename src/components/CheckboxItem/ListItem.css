@@ -63,3 +63,38 @@
 .expandButton.expanded:after {
     transform: rotate(180deg);
 }
+
+
+
+.expand-line {
+    position: absolute;
+    left: 0px;
+}
+
+.expand-line::before, .expand-line::after {
+    content: "";
+    position: relative;
+    width: 0px;
+    border-left: 1px dashed #CAD1D4;
+    left: 9px;
+    height: 100%;
+}
+
+.expand-line::before {
+    top: 0px;
+}
+
+.expand-line::after {
+    top: 23px;
+    left: 8px;
+}
+
+.checkBoxItem:first-of-type > .expand-line::before {
+    display: none;
+}
+.checkBoxItem:last-of-type > .expand-line::after {
+    display: none;
+}
+.checkBoxItem:first-of-type > .expand-line::after {
+    left: 9px;
+}
