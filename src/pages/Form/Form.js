@@ -27,9 +27,6 @@ const Form = () => {
         let depth = 0;
         const newData = [];
 
-        //maintain a hirarchical structure for checked states of all elements to update states in constant time complexity
-        const checkedState = [];
-
         //sorting the data based on length of parents to improve time complexity
         //for all elements, keep on checking number of ancestors from 0 to n.
         //data is added starting from parents and ending on child leaf nodes.
@@ -42,10 +39,9 @@ const Form = () => {
                 const partitions = curr.id.split("-").length-1;
 
                 if(partitions === depth) {
-                    // checkedState.push({id: curr.id, checked: false});
                     //handle root elements and add root node data in newData
                     if(!curr.parentId) {
-                        setElementAtIndex(newData, curr, curr.id, depth, checkedState);
+                        setElementAtIndex(newData, curr, curr.id, depth);
                         checkboxData.splice(i, 1);
                         continue;
                     }
@@ -53,15 +49,13 @@ const Form = () => {
                     
                     //traverse from root to parent using index
                     let reference = newData;
-                    let checkedStateReference = checkedState;
                     while(parents.length) {
                         let index = parseInt(parents.splice(parents.length-1, 1)[0]);
                         reference = reference[index].childs;
-                        checkedStateReference = checkedStateReference[index].childs;
                     }
 
                     const newIndex = curr.id.split("-").slice(-1)[0];
-                    setElementAtIndex(reference, curr, newIndex, depth, checkedStateReference);
+                    setElementAtIndex(reference, curr, newIndex, depth);
                     checkboxData.splice(i, 1);
                 }
             }
@@ -72,9 +66,6 @@ const Form = () => {
         }
 
         setCheckboxData(newData);
-        setCheckedState(checkedState);
-        console.log("newData", newData);
-        console.log("checkedState", JSON.stringify(checkedState));
     }
 
     /**
@@ -85,15 +76,9 @@ const Form = () => {
      * @param {number} depth hirarchy depth of the current element
      * @return {void}
      */
-    const setElementAtIndex = (arr, element, index, depth, checkedState) => {
+    const setElementAtIndex = (arr, element, index, depth) => {
         const len = arr.length;
-        const elementId = element.id;
         index = parseInt(index);
-        const checkedStateElement = {
-            id:elementId,
-            checked:false,
-            childs:[]
-        }
 
         //store child elements and current depth
         element.childs = [];
@@ -104,17 +89,14 @@ const Form = () => {
         //dummy data will be replaced when we traverse it eventually
         if(index < len) {
             arr[index] = element;
-            checkedState[index] = checkedStateElement;
         }
         else {
             if(index > len) {
                 while(arr.length < index) {
                     arr.push(-1);
-                    checkedState.push({});
                 }
             }
             arr.push(element);
-            checkedState.push(checkedStateElement);
         }
     }
 
