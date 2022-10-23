@@ -1,10 +1,12 @@
+import { useState } from "react";
 import ListItem from './ListItem';
 
 import './CheckboxItem.css';
 
 const CheckboxItem = (props) => {
+    const [isExpanded, setIsExpanded] = useState(false);
     const boxData = props.boxData;
-    const bHasChilds = boxData.childs && boxData.childs.length;
+    const bHasChilds = boxData.childs && boxData.childs.length !== 0;
     let childElements = null;
 
     if(bHasChilds) {
@@ -27,14 +29,21 @@ const CheckboxItem = (props) => {
         )
     }
 
+    const showHideHandler = () => {
+        if(bHasChilds)
+            setIsExpanded(!isExpanded);
+    }
+
     return (
         <div className="checkBoxItem">
             <ListItem 
                 name={boxData.name}
                 depth={boxData.depth}
                 bHasChilds={childElements != null}
+                isExpanded={isExpanded}
+                showHideHandler={showHideHandler}
             />
-            { childElements }
+            { isExpanded && childElements }
         </div>
     );
 }

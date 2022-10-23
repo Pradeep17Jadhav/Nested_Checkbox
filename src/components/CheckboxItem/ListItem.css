@@ -17,3 +17,48 @@
     text-transform: uppercase;
     color: #0D2238;
 }
+
+
+.expandButton {
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid #CAD1D5;
+    width: 16px;
+    height: 16px;
+}
+
+.expandButton.hidden {
+    visibility: hidden;
+}
+
+.expandButton::before,
+.expandButton::after{
+    content: "";
+    position: absolute;
+    background-color: #74838F;
+    transition: transform 0.3s ease-in-out;
+    opacity: 0.8;
+}
+
+/* Vertical line */
+.expandButton::before{
+    top: 3px;
+    left: 7px;
+    width: 2px;
+    height: 10px;
+}
+
+/* horizontal line */
+.expandButton::after{
+    top: 7px;
+    left: 3px;
+    width: 10px;
+    height: 2px;
+}
+
+.expandButton.expanded:before {
+    transform: rotate(90deg);
+}
+.expandButton.expanded:after {
+    transform: rotate(180deg);
+}

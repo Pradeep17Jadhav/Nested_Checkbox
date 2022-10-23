@@ -1,19 +1,22 @@
-import ExpandButton from "./ExpandButton";
 import Checkbox from "./Checkbox";
 
 import './ListItem.css';
 
 const ListItem = (props) => {
     const depth = props.depth;
-    const bShowExpand = props.bHasChilds;
-
     let textCls = "";
     if(depth === 0 || depth === 1)
         textCls = " level" + depth;
 
+    let visibilityCls = props.isExpanded ? " expanded" : "";
+    visibilityCls += props.bHasChilds ? "" : " hidden";
+
     return (
         <div className="listItem">
-            <ExpandButton visible={bShowExpand}/>
+            <div 
+                className={"expandButton" + visibilityCls} 
+                onClick={props.showHideHandler}
+            />
             <Checkbox 
                 textCls={textCls}
                 name={props.name}

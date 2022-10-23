@@ -1,4 +1,8 @@
-/* Parent checkbox component */
+.checkbox {
+    max-width: 320px;
+}
+
+/* Custom checkbox component */
 .checkmark {
     position: absolute;
     height: 18px;
@@ -43,6 +47,6 @@
 }
 
 /* Hover effect on custom checkbox */
-.checkbox:hover .checkmark {
+.checkbox-label:hover .checkmark {
     background-color: #d8ffcb;
 }
