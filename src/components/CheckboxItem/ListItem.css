@@ -89,12 +89,12 @@
     left: 8px;
 }
 
-.checkBoxItem:first-of-type > .expand-line::before {
+.container > .checkBoxItem:first-of-type > .expand-line::before {
     display: none;
 }
-.checkBoxItem:last-of-type > .expand-line::after {
+.container > .checkBoxItem:last-of-type > .expand-line::after {
     display: none;
 }
 .checkBoxItem:first-of-type > .expand-line::after {
-    left: 9px;
+    left: 8px;
 }

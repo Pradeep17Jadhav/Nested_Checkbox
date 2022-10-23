@@ -5,6 +5,8 @@ const Checkbox = (props) => {
 
     return (
         <div className="checkbox">
+            <span className="checkbox-line" />
+            <span className="leaf-line" />
             <label className={"checkbox-label" + textCls}>
                 <input className="checkbox-ele" type="checkbox"></input>
                 <span className="checkmark"></span>

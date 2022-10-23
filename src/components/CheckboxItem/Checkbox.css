@@ -51,3 +51,36 @@
 .checkbox-label:hover .checkmark {
     background-color: #d8ffcb;
 }
+
+
+/* CSS for showing dashed connection lines betweek checkboxes and expand button */
+.checkbox-line {
+    position: absolute;
+    left: 0px;
+}
+
+.checkbox-line::before, .checkbox-line::after {
+    content: "";
+    position: relative;
+    width: 0px;
+    border-left: 1px dashed #CAD1D4;
+    left: 36px;
+}
+
+.checkbox-line::before {
+    top: 0px;
+    left: 37px;
+}
+
+.checkbox-line::after {
+    top: 23px;
+    left: 36px;
+}
+
+.checkBoxItem-childs > .checkBoxItem:first-of-type > .listItem > .checkbox > .checkbox-line::before,
+.checkBoxItem-childs > .checkBoxItem:last-of-type > .listItem > .checkbox > .checkbox-line::after,
+.container > .checkBoxItem > .listItem > .checkbox > .checkbox-line::before,
+.container > .checkBoxItem:last-of-type > .listItem > .checkbox > .checkbox-line::after
+{
+    display: none;
+}

@@ -15,7 +15,6 @@ const ListItem = (props) => {
         <>
             <span className="expand-line" />
             <div className="listItem">
-                <span className="checkbox-line" />
                 <div 
                     className={"expandButton" + visibilityCls} 
                     onClick={props.showHideHandler}
