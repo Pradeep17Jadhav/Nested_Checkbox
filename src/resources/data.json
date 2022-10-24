@@ -5,19 +5,9 @@
         "parentId": null
     },
     {
-        "name": "Recipes",
-        "id": "1",
-        "parentId": null
-    },
-    {
-        "name": "Locations",
-        "id": "2",
-        "parentId": null
-    },
-    {
-        "name": "IPL",
-        "id": "0-0",
-        "parentId": "0"
+        "name": "Hyderabadi Chicken Fry",
+        "id": "1-1-4",
+        "parentId": "1-1"
     },
     {
         "name": "EPL",
@@ -25,18 +15,33 @@
         "parentId": "0"
     },
     {
+        "name": "Keema Samosa with Yoghurt Dip",
+        "id": "1-1-3",
+        "parentId": "1-1"
+    },
+    {
+        "name": "Rugby",
+        "id": "0-4",
+        "parentId": "0"
+    },
+    {
+        "name": "Moscow",
+        "id": "2-3-0",
+        "parentId": "2-3"
+    },
+    {
         "name": "NBA",
         "id": "0-2",
         "parentId": "0"
     },
     {
-        "name": "Soccer",
-        "id": "0-3",
-        "parentId": "0"
+        "name": "Recipes",
+        "id": "1",
+        "parentId": null
     },
     {
-        "name": "Rugby",
-        "id": "0-4",
+        "name": "Soccer",
+        "id": "0-3",
         "parentId": "0"
     },
     {
@@ -45,14 +50,64 @@
         "parentId": "0-0"
     },
     {
+        "name": "Locations",
+        "id": "2",
+        "parentId": null
+    },
+    {
         "name": "Rajasthan Royals",
         "id": "0-0-1",
         "parentId": "0-0"
     },
     {
+        "name": "Manchester United",
+        "id": "0-1-2",
+        "parentId": "0-1"
+    },
+    {
         "name": "Gujarat Titans",
         "id": "0-0-2",
         "parentId": "0-0"
+    },
+    {
+        "name": "Brooklyn Nets",
+        "id": "0-2-0",
+        "parentId": "0-2"
+    },
+    {
+        "name": "Newcastle",
+        "id": "0-4-1",
+        "parentId": "0-4"
+    },
+    {
+        "name": "Chicago Bulls",
+        "id": "0-2-1",
+        "parentId": "0-2"
+    },
+    {
+        "name": "Atlanta Hawks",
+        "id": "0-2-3",
+        "parentId": "0-2"
+    },
+    {
+        "name": "Grilled Chicken Escalope",
+        "id": "1-1-0",
+        "parentId": "1-1"
+    },
+    {
+        "name": "Mutton Korma",
+        "id": "1-1-1",
+        "parentId": "1-1"
+    },
+    {
+        "name": "Bristol",
+        "id": "0-4-0",
+        "parentId": "0-4"
+    },
+    {
+        "name": "Worcester",
+        "id": "0-4-2",
+        "parentId": "0-4"
     },
     {
         "name": "Arsenal",
@@ -65,54 +120,24 @@
         "parentId": "0-1"
     },
     {
-        "name": "Manchester United",
-        "id": "0-1-2",
-        "parentId": "0-1"
-    },
-    {
-        "name": "Brooklyn Nets",
-        "id": "0-2-0",
-        "parentId": "0-2"
-    },
-    {
-        "name": "Chicago Bulls",
-        "id": "0-2-1",
-        "parentId": "0-2"
-    },
-    {
-        "name": "Golden State Warriors",
-        "id": "0-2-2",
-        "parentId": "0-2"
-    },
-    {
-        "name": "Atlanta Hawks",
-        "id": "0-2-3",
-        "parentId": "0-2"
-    },
-    {
-        "name": "Bristol",
-        "id": "0-4-0",
-        "parentId": "0-4"
-    },
-    {
-        "name": "Newcastle",
-        "id": "0-4-1",
-        "parentId": "0-4"
-    },
-    {
-        "name": "Worcester",
-        "id": "0-4-2",
-        "parentId": "0-4"
-    },
-    {
         "name": "Edinburgh",
         "id": "0-4-3",
         "parentId": "0-4"
     },
     {
+        "name": "IPL",
+        "id": "0-0",
+        "parentId": "0"
+    },
+    {
         "name": "Saracens",
         "id": "0-4-4",
         "parentId": "0-4"
+    },
+    {
+        "name": "Golden State Warriors",
+        "id": "0-2-2",
+        "parentId": "0-2"
     },
     {
         "name": "Veg",
@@ -122,11 +147,6 @@
     {
         "name": "Non-veg",
         "id": "1-1",
-        "parentId": "1"
-    },
-    {
-        "name": "Egg",
-        "id": "1-2",
         "parentId": "1"
     },
     {
@@ -140,39 +160,19 @@
         "parentId": "1-0"
     },
     {
+        "name": "Egg",
+        "id": "1-2",
+        "parentId": "1"
+    },
+    {
         "name": "Gobi Manchurian",
         "id": "1-0-2",
         "parentId": "1-0"
     },
     {
-        "name": "Grilled Chicken Escalope",
-        "id": "1-1-0",
-        "parentId": "1-1"
-    },
-    {
-        "name": "Mutton Korma",
-        "id": "1-1-1",
-        "parentId": "1-1"
-    },
-    {
         "name": "Malabar Fish Biryani",
         "id": "1-1-2",
         "parentId": "1-1"
-    },
-    {
-        "name": "Keema Samosa with Yoghurt Dip",
-        "id": "1-1-3",
-        "parentId": "1-1"
-    },
-    {
-        "name": "Hyderabadi Chicken Fry",
-        "id": "1-1-4",
-        "parentId": "1-1"
-    },
-    {
-        "name": "India",
-        "id": "2-0",
-        "parentId": "2"
     },
     {
         "name": "United State of America",
@@ -190,34 +190,19 @@
         "parentId": "2"
     },
     {
-        "name": "Manali",
-        "id": "2-0-0",
-        "parentId": "2-0"
-    },
-    {
         "name": "Leh Ladakh",
         "id": "2-0-1",
         "parentId": "2-0"
     },
     {
+        "name": "Team 2",
+        "id": "0-1-1-1",
+        "parentId": "0-1-1"
+    },
+    {
         "name": "Gulmarg",
         "id": "2-0-2",
         "parentId": "2-0"
-    },
-    {
-        "name": "Moscow",
-        "id": "2-3-0",
-        "parentId": "2-3"
-    },
-    {
-        "name": "Saint Petersburg",
-        "id": "2-3-1",
-        "parentId": "2-3"
-    },
-    {
-        "name": "Main Team",
-        "id": "0-0-0-0",
-        "parentId": "0-0-0"
     },
     {
         "name": "Backup Team",
@@ -230,13 +215,28 @@
         "parentId": "0-0-0"
     },
     {
-        "name": "Team 1",
-        "id": "0-1-1-0",
-        "parentId": "0-1-1"
+        "name": "India",
+        "id": "2-0",
+        "parentId": "2"
     },
     {
-        "name": "Team 2",
-        "id": "0-1-1-1",
+        "name": "Saint Petersburg",
+        "id": "2-3-1",
+        "parentId": "2-3"
+    },
+    {
+        "name": "Manali",
+        "id": "2-0-0",
+        "parentId": "2-0"
+    },
+    {
+        "name": "Main Team",
+        "id": "0-0-0-0",
+        "parentId": "0-0-0"
+    },
+    {
+        "name": "Team 1",
+        "id": "0-1-1-0",
         "parentId": "0-1-1"
     }
 ]

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CheckboxItem from "../../components/CheckboxItem/CheckboxItem";
+import CheckboxItem from "../../components/CheckboxItem";
 
 import './Form.css';
 
@@ -8,7 +8,7 @@ const Form = () => {
 
     useEffect(() => {
         //set api path for the raw data
-        let path = "https://api.npoint.io/63a4287fa979aced3a3f";
+        let path = "https://api.npoint.io/cf5cbe28a25916114eda";
         fetch(path)
             .then((res) => res.json())
             .then((data) => processCheckboxData(data))
