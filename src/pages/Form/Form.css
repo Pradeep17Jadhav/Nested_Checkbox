@@ -4,8 +4,9 @@
     border: 1px solid #EAF0F3;
     margin: 32px auto;
     width: max-content;
-    min-width: 360px;
+    min-width: 300px;
     padding: 42px;
+    box-shadow: rgba(150, 150, 170, 0.2) 0px 8px 24px;
 }
 
 

@@ -12,7 +12,7 @@ const CheckboxItem = (props) => {
     if(bHasChilds) {
         childElements = (
             <div className="checkBoxItem-childs">
-                <span className="vertical-line" />
+            <span className="vertical-line" />
             {
                 boxData.childs.map((child) => {
                     if(!child || child === -1)

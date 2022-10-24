@@ -30,7 +30,6 @@ const ListItem = (props) => {
                 />
             </div>
         </>
-        
     );
 }
 

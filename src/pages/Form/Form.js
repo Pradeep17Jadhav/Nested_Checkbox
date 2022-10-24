@@ -190,22 +190,26 @@ const Form = () => {
 
     return (
         <div className="container">
-            <form className="form" onSubmit={formSubmitHandler}>
+        {
+            checkboxData.length === 0 ?
+            (<span>Loading data, please wait...</span>) :
+            (<form className="form" onSubmit={formSubmitHandler}>
                 <div>
-                    {
-                        checkboxData.map((boxData) => {
-                            return (
-                                <CheckboxItem 
-                                    boxData={boxData}
-                                    key={boxData.id}
-                                    updateCheckedState={updateCheckedState}
-                                ></CheckboxItem>
-                            )
-                        })
-                    }
+                {
+                    checkboxData.map((boxData) => {
+                        return (
+                            <CheckboxItem 
+                                boxData={boxData}
+                                key={boxData.id}
+                                updateCheckedState={updateCheckedState}
+                            ></CheckboxItem>
+                        )
+                    })
+                }
                 </div>
                 <input className="btnSubmit" type="submit" value="Submit" />
-            </form>
+            </form>)
+        }
         </div>
     )
 }
