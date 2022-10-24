@@ -21,8 +21,7 @@ const CheckboxItem = (props) => {
                         <CheckboxItem
                             boxData={child}
                             key={child.id}
-                                checkedState={props.checkedState}
-                                updateCheckedState={props.updateCheckedState}
+                            updateCheckedState={props.updateCheckedState}
                         />
                     );
                 })
@@ -42,10 +41,10 @@ const CheckboxItem = (props) => {
                 name={boxData.name}
                 depth={boxData.depth}
                 id={boxData.id}
-                checked={boxData.checked}
+                bChecked={boxData.bChecked}
+                bIntermediate={boxData.bIntermediate}
                 bHasChilds={childElements != null}
                 isExpanded={isExpanded}
-                checkedState={props.checkedState}
                 showHideHandler={showHideHandler}
                 updateCheckedState={props.updateCheckedState}
             />

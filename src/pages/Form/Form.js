@@ -5,7 +5,6 @@ import './Form.css';
 
 const Form = () => {
     const [checkboxData, setCheckboxData] = useState([]);
-    const [checkedState, setCheckedState] = useState([]);
 
     useEffect(() => {
         //set api path for the raw data
@@ -45,12 +44,13 @@ const Form = () => {
                         checkboxData.splice(i, 1);
                         continue;
                     }
-                    const parents = curr.parentId.split("-").reverse();
                     
                     //traverse from root to parent using index
+                    const parents = curr.parentId.split("-").reverse();
                     let reference = newData;
                     while(parents.length) {
                         let index = parseInt(parents.splice(parents.length-1, 1)[0]);
+                        reference[index].totalChildCount++;
                         reference = reference[index].childs;
                     }
 
@@ -65,6 +65,7 @@ const Form = () => {
             depth++;
         }
 
+        console.log(newData);
         setCheckboxData(newData);
     }
 
@@ -83,7 +84,10 @@ const Form = () => {
         //store child elements and current depth
         element.childs = [];
         element.depth = depth;
-        element.checked = false;
+        element.bChecked = false;
+        element.totalChildCount = 0;
+        element.checkedTotalChildCount = 0;
+        element.bIntermediate = false;
 
         //to use id as index, fill non-existing indices with dummy value -1
         //dummy data will be replaced when we traverse it eventually
@@ -101,43 +105,91 @@ const Form = () => {
     }
 
     const formSubmitHandler = (e) => {
-        console.log(checkedState);
+        console.log("Submitted! The data is:");
+        console.log(checkboxData);
+        e.preventDefault();
     }
 
-    const updateCheckedState = (id) => {
-        const parents = id.split("-").reverse();
+    const updateCheckedState = (id, bCheckedOldState) => {
+        const bChecked = !bCheckedOldState;
+        const parents = id.split("-");
         let arrCheckedState = JSON.parse(JSON.stringify(checkboxData)); //deep clone
-        let index = parseInt(parents.splice(parents.length-1, 1)[0]);
+        let elementIndex = parseInt(parents.splice(parents.length-1, 1)[0]);
         let checkedStateReference = arrCheckedState;
+        parents.reverse();
 
         while(parents.length) {
+            let index = parseInt(parents.splice(parents.length-1, 1)[0]); 
             checkedStateReference = checkedStateReference[index].childs;
-            index = parseInt(parents.splice(parents.length-1, 1)[0]);
         }
-
-        checkedStateReference[index].checked = !checkedStateReference[index].checked;
+            
+        checkedStateReference[elementIndex].bChecked = bChecked;
+            
+        //handle state of all childs
+        checkChildCheckboxes(checkedStateReference[elementIndex], bChecked);
+        updateCheckedStateFromChilds(arrCheckedState);
         setCheckboxData(arrCheckedState);
-        // setCheckedState(arrCheckedState);
         console.log(arrCheckedState);
     };
+
+    const updateCheckedStateFromChilds = (arr) => {
+        let checkedChildCount = 0;
+        for(let i = 0; i < arr.length; i++) {
+            let curr = arr[i];
+            let childs = curr.childs;
+            if(childs && childs.length) {
+                curr.checkedTotalChildCount = updateCheckedStateFromChilds(childs);
+                checkedChildCount += curr.checkedTotalChildCount;
+            }
+
+            if(curr.totalChildCount !== 0 ) {
+                if(curr.totalChildCount === curr.checkedTotalChildCount) {
+                    curr.bChecked = true;
+                    curr.bIntermediate = false;
+                }
+                else if(curr.totalChildCount !== curr.checkedTotalChildCount) {
+                    curr.bChecked = false;
+                    if(curr.checkedTotalChildCount === 0)
+                        curr.bIntermediate = false;
+                    else
+                        curr.bIntermediate = true;
+                }
+            }
+
+            if(curr.bChecked)
+                checkedChildCount++;
+        }
+        return checkedChildCount;
+
+    }
+
+    const checkChildCheckboxes = (arr, bChecked) => {
+        if(arr.childs && arr.childs.length) {
+            arr.childs.forEach(child => {
+                child.bChecked = bChecked;
+                checkChildCheckboxes(child, bChecked);
+            });
+        }
+    }
 
 
     return (
         <div className="container">
-            <form onSubmit={formSubmitHandler}>
-                {
-                    checkboxData.map((boxData) => {
-                        return (
-                            <CheckboxItem 
-                                boxData={boxData}
-                                key={boxData.id}
-                                checkedState={checkedState}
-                                updateCheckedState={updateCheckedState}
-                            ></CheckboxItem>
-                        )
-                    })
-                }
-                <input type="submit" value="Submit" />
+            <form className="form" onSubmit={formSubmitHandler}>
+                <div>
+                    {
+                        checkboxData.map((boxData) => {
+                            return (
+                                <CheckboxItem 
+                                    boxData={boxData}
+                                    key={boxData.id}
+                                    updateCheckedState={updateCheckedState}
+                                ></CheckboxItem>
+                            )
+                        })
+                    }
+                </div>
+                <input className="btnSubmit" type="submit" value="Submit" />
             </form>
         </div>
     )

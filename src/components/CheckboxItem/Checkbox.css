@@ -30,6 +30,7 @@
     height: 10px;
     background-color: #41C3A9;
     border-radius: 50%;
+    transition: 0.15s;
 }
 
 /* Label of the parent checkbox component */
@@ -50,6 +51,15 @@
 /* Hover effect on custom checkbox */
 .checkbox-label:hover .checkmark {
     background-color: #d8ffcb;
+}
+
+.checkbox input:indeterminate ~ .checkmark::after {
+    display: block;
+    left: 3px;
+    top: 6px;
+    width: 10px;
+    height: 4px;
+    border-radius: 0%;
 }
 
 
@@ -78,10 +88,10 @@
     left: 36px;
 }
 
-.checkBoxItem-childs > .checkBoxItem:first-of-type > .listItem > .checkbox > .checkbox-line::before,
-.checkBoxItem-childs > .checkBoxItem:last-of-type > .listItem > .checkbox > .checkbox-line::after,
-.container > .checkBoxItem > .listItem > .checkbox > .checkbox-line::before,
-.container > .checkBoxItem:last-of-type > .listItem > .checkbox > .checkbox-line::after
+.checkBoxItem-childs > .checkBoxItem:first-of-type .listItem .checkbox .checkbox-line::before,
+.checkBoxItem-childs > .checkBoxItem:last-of-type  .listItem .checkbox .checkbox-line::after,
+.container .checkBoxItem > .listItem .checkbox .checkbox-line::before,
+.container .checkBoxItem:last-of-type .listItem .checkbox .checkbox-line::after
 {
     display: none;
 }

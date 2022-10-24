@@ -23,7 +23,8 @@ const ListItem = (props) => {
                     textCls={textCls}
                     name={props.name}
                     id={props.id}
-                    checked={props.checked}
+                    bChecked={props.bChecked}
+                    bIntermediate={props.bIntermediate}
                     bLeafNode={!props.bHasChilds}
                     updateCheckedState={props.updateCheckedState}
                 />

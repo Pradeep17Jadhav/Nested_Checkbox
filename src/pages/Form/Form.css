@@ -7,3 +7,18 @@
     min-width: 360px;
     padding: 42px;
 }
+
+
+.btnSubmit {
+    position: relative;
+    letter-spacing: 0.1em;
+    font-size: 1em;
+    color: #fff;
+    margin-top: 24px;
+    padding: 8px 16px;
+    background-color: #41C3A9;
+    border: 1px solid #39ab94;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+}
