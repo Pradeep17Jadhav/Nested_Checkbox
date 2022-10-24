@@ -104,12 +104,6 @@ const Form = () => {
         }
     }
 
-    const formSubmitHandler = (e) => {
-        console.log("Submitted! The data is:");
-        console.log(checkboxData);
-        e.preventDefault();
-    }
-
     const updateCheckedState = (id, bCheckedOldState) => {
         const bChecked = !bCheckedOldState;
         const parents = id.split("-");
@@ -170,6 +164,28 @@ const Form = () => {
                 checkChildCheckboxes(child, bChecked);
             });
         }
+    }
+
+    const formSubmitHandler = (e) => {
+        let data = [];
+        getFormData(data, checkboxData);
+        console.log("Submitted! The data is:", data);
+        e.preventDefault();
+    }
+
+    const getFormData = (arr, stateData) => {
+        stateData.forEach((ele) => {
+            let obj = {
+                id: ele.id,
+                name: ele.name,
+                parentId: ele.parentId,
+                bChecked: ele.bChecked,
+                bIntermediate: ele.bIntermediate,
+                childs: getFormData([], ele.childs)
+            }
+            arr.push(obj);
+        });
+        return arr;
     }
 
 
