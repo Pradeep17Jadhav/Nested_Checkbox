@@ -65,7 +65,6 @@ const Form = () => {
             depth++;
         }
 
-        console.log(newData);
         setCheckboxData(newData);
     }
 
@@ -123,7 +122,6 @@ const Form = () => {
         checkChildCheckboxes(checkedStateReference[elementIndex], bChecked);
         updateCheckedStateFromChilds(arrCheckedState);
         setCheckboxData(arrCheckedState);
-        console.log(arrCheckedState);
     };
 
     const updateCheckedStateFromChilds = (arr) => {
@@ -169,7 +167,8 @@ const Form = () => {
     const formSubmitHandler = (e) => {
         let data = [];
         getFormData(data, checkboxData);
-        console.log("Submitted! The data is:", data);
+        console.log("Submitted! The data is:");
+        console.log(data);
         e.preventDefault();
     }
 

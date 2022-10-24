@@ -1,10 +1,8 @@
-# Getting Started with Create React App
+# Nested Checkbox component using ReactJs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live project link: [Nested Checkbox](https://pradeep17jadhav.github.io/Nested_Checkbox).
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
@@ -14,57 +12,68 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Requirements and explaination
+● Component should act like a traditional form input element
+Component uses HTML form element and checkboxes in nested form. Output data is printed on console on submitting the form.
 
-### `npm run eject`
+● Follow best practices
+Used reusable functions wherever possible
+followed DRY principle.
+Kept the logic simple and easy to understand for anyone.
+Logic is implemented by considering the space and time complexity. All operations of processing data and changing states is highly optimized.
+Used reusable components, which can be scaled further as per future requirements
+Added comments for important logical code
+Data is used dynamically without hard-coding
+Components are split in multiple components keeping in mind future requirements and improvements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+● Feel free to use any 3rd party libraries, as far as you are mindful about the size it adds to
+the project.
+Haven't used any 3rd party library (except Gh-pages) to reduced build size
+All buttons, lines, checkboxes are custom and made from scratch
+Used only Gh-pages library to deploy project using Github
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+● Each node can be nested to N levels
+Implemented this as per design. All nodes beyond 2nd depth will have same styling properties
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+● Overflowing text wraps to next line adjusting the height
+Set predefined width for each level, which will overflow to next line while maintaining the positioning
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+● Should emit necessary events
+Events are emitted as per user interaction to update UI and states
 
-## Learn More
+● Style Isolation
+All components have their own separate CSS files
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+● Submission in the form of github repo, with example integrated.
+A shuffled example data is used. 
+The data is hosted on 3rd party website and API call is made to fetch the data
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+● Checkbox to have intermediate state
+All checkboxes have 3 states: checked, unchecked, intermediate. 
+Checking/unchecking any checkbox will check/uncheck all the children nodes.
+State of all ancestors will be updated based on state of childs/siblings.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Input data
+Input data should be in JSON form. Each element in array should contain an object having properties required for rendering the nested structure.
+Used following properties for each checkbox node:
+1. name: Name to be printed on screen
+2. id: Unique Id of the current element
+3. parentId: Id of the parent element
 
-### Analyzing the Bundle Size
+The data of checkboxes can be sorted or unsorted. But the ID's of each node are expecte to be in sequence, i.e. 1-2-0, 1-2-1, 1-2-2 etc. But still the missing data is handled and will not cause any problem.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Output data
+Output data is printed on console on submitting the form. It is in nested form (as visible on UI). Output data has following properties:
+1. name: Name to be printed on screen
+2. id: Unique Id of the current element
+3. parentId: Id of the parent element
+4. bChecked: Checked/unchecked state of the current ID
+5. bIntermediate: True if current checkbox is in intermediate state (some of the descendant are checked)
+6. childs: Array of data of all the children checkboxes
