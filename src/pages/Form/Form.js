@@ -103,6 +103,12 @@ const Form = () => {
         }
     }
 
+    /**
+     * Updates the checked state of checkbox to a new state.
+     * Makes necessary changes to state of all child elements
+     * @param {string} id id of the checkbox whose state has changed
+     * @param {boolean} bCheckedOldState state of the checkbox before update
+     */
     const updateCheckedState = (id, bCheckedOldState) => {
         const bChecked = !bCheckedOldState;
         const parents = id.split("-");
@@ -115,25 +121,33 @@ const Form = () => {
             let index = parseInt(parents.splice(parents.length-1, 1)[0]); 
             checkedStateReference = checkedStateReference[index].childs;
         }
-            
         checkedStateReference[elementIndex].bChecked = bChecked;
-            
+        
         //handle state of all childs
-        checkChildCheckboxes(checkedStateReference[elementIndex], bChecked);
+        updateChildCheckboxStates(checkedStateReference[elementIndex], bChecked);
         updateCheckedStateFromChilds(arrCheckedState);
         setCheckboxData(arrCheckedState);
     };
 
+    /**
+     * Counts the number of checked decendents and maintains the value in each parent
+     * Used to handle intermediate state with least possible time complexity
+     * @param {Array} arr list of sibling checkboxes
+     * @returns {number}
+     */
     const updateCheckedStateFromChilds = (arr) => {
         let checkedChildCount = 0;
         for(let i = 0; i < arr.length; i++) {
             let curr = arr[i];
             let childs = curr.childs;
+
+            //get count of all child nodes
             if(childs && childs.length) {
                 curr.checkedTotalChildCount = updateCheckedStateFromChilds(childs);
                 checkedChildCount += curr.checkedTotalChildCount;
             }
 
+            //update the checked and intermediate state of current node based on checked childs
             if(curr.totalChildCount !== 0 ) {
                 if(curr.totalChildCount === curr.checkedTotalChildCount) {
                     curr.bChecked = true;
@@ -155,15 +169,24 @@ const Form = () => {
 
     }
 
-    const checkChildCheckboxes = (arr, bChecked) => {
+    /**
+     * Updates the checked/unchecked state of all child checkboxes starting from given array
+     * @param {Array} arr 
+     * @param {boolean} bChecked 
+     */
+    const updateChildCheckboxStates = (arr, bChecked) => {
         if(arr.childs && arr.childs.length) {
             arr.childs.forEach(child => {
                 child.bChecked = bChecked;
-                checkChildCheckboxes(child, bChecked);
+                updateChildCheckboxStates(child, bChecked);
             });
         }
     }
 
+    /**
+     * Handler for form submit. Outputs the data in hirarchical form
+     * @param {*} e 
+     */
     const formSubmitHandler = (e) => {
         let data = [];
         getFormData(data, checkboxData);
@@ -172,6 +195,12 @@ const Form = () => {
         e.preventDefault();
     }
 
+    /**
+     * Creates a new deep copy of output as per desired structure
+     * @param {Array} arr new array of objects of checkboxes
+     * @param {object} stateData state data of current state of all checkboxes
+     * @returns 
+     */
     const getFormData = (arr, stateData) => {
         stateData.forEach((ele) => {
             let obj = {
