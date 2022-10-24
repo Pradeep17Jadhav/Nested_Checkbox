@@ -20,7 +20,7 @@ Component uses HTML form element and checkboxes in nested form.\
 Output data is printed on console on submitting the form.
 
 - Follow best practices\
-* Used reusable functions wherever possible\
+Used reusable functions wherever possible\
 followed DRY principle.\
 Kept the logic simple and easy to understand for anyone.\
 Logic is implemented by considering the space and time complexity. All operations of processing data and changing states is highly optimized.\
